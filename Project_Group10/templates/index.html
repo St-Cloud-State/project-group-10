@@ -8,8 +8,8 @@
 </head>
 <body style="padding: 40px; background-color: #f8f9fa;">
 
-    <h1 class="mb-5"> University Registration System</h1>
-    <h2 class="mb-4"> CSCI 514 - Group 10 </h1>
+    <h1 class="mb-5">University Registration System</h1>
+    <h2 class="mb-4">CSCI 514 - Group 10</h2>
 
     <!-- Add Student -->
     <fieldset class="border p-4 mb-4">
@@ -24,7 +24,6 @@
             <button type="button" class="btn btn-outline-secondary ms-2" onclick="fetchStudents()">View Students</button>
         </form>
     </fieldset>
-
     <div id="studentList" class="mb-5"></div>
 
     <!-- Add Course -->
@@ -40,7 +39,6 @@
             <button type="button" class="btn btn-outline-secondary ms-2" onclick="fetchCoursesByRubric()">View Courses</button>
         </form>
     </fieldset>
-
     <div id="courseList" class="mb-5"></div>
 
     <!-- Add Section -->
@@ -58,8 +56,73 @@
             <button type="button" class="btn btn-outline-secondary ms-2" onclick="fetchSections()">View Sections</button>
         </form>
     </fieldset>
+    <div id="sectionList" class="mb-5"></div>
 
-    <div id="sectionList"></div>
+    <!-- Register Student -->
+    <fieldset class="border p-4 mb-4">
+        <legend class="w-auto px-2">Register Student in a Section</legend>
+        <form onsubmit="event.preventDefault(); registerStudent();">
+            <div class="mb-2"><input class="form-control" id="regStudentId" placeholder="Student ID"></div>
+            <div class="mb-2"><input class="form-control" id="regCourseRubric" placeholder="Course Rubric (e.g., CSCI)"></div>
+            <div class="mb-2"><input class="form-control" id="regCourseNumber" placeholder="Course Number (e.g., 514)"></div>
+            <div class="mb-2"><input class="form-control" id="regSectionId" placeholder="Section ID"></div>
+            <div class="mb-2"><input class="form-control" id="regSemester" placeholder="Semester (e.g., Fall)"></div>
+            <div class="mb-2"><input class="form-control" id="regYear" placeholder="Year (e.g., 2025)"></div>
+            <button class="btn btn-primary">Register</button>
+        </form>
+    </fieldset>
+    
+
+    <!-- View Students in Section -->
+    <fieldset class="border p-4 mb-4">
+        <legend class="w-auto px-2">View Students in Section</legend>
+        <form onsubmit="event.preventDefault(); getStudentsInSection();">
+            <div class="mb-2"><input class="form-control" id="viewSectionRubric" placeholder="Course Rubric (e.g., CSCI)"></div>
+            <div class="mb-2"><input class="form-control" id="viewSectionNumber" placeholder="Course Number (e.g., 514)"></div>
+            <div class="mb-2"><input class="form-control" id="viewSectionId" placeholder="Section ID"></div>
+            <div class="mb-2"><input class="form-control" id="viewSemester" placeholder="Semester (e.g., Fall)"></div>
+            <div class="mb-2"><input class="form-control" id="viewYear" placeholder="Year (e.g., 2024)"></div>
+            <button class="btn btn-outline-primary">View Students</button>
+        </form>
+        
+    </fieldset>
+    <div id="studentsInSection" class="mb-5"></div>
+
+    <!-- View Courses for a Student -->
+    <fieldset class="border p-4 mb-4">
+        <legend class="w-auto px-2">View Courses for a Student</legend>
+        <form onsubmit="event.preventDefault(); getCoursesForStudent();">
+            <div class="mb-2"><input class="form-control" id="viewStudentId" placeholder="Student ID"></div>
+            <button class="btn btn-outline-primary">View Courses</button>
+        </form>
+    </fieldset>
+    <div id="coursesForStudent" class="mb-5"></div>
+
+    <!-- Assign Grade -->
+    <fieldset class="border p-4 mb-4">
+        <legend class="w-auto px-2">Assign Grade</legend>
+        <form onsubmit="event.preventDefault(); assignGrade();">
+            <div class="mb-2"><input class="form-control" id="gradeStudentId" placeholder="Student ID"></div>
+            <div class="mb-2"><input class="form-control" id="gradeRubric" placeholder="Course Rubric (e.g., CSCI)"></div>
+            <div class="mb-2"><input class="form-control" id="gradeNumber" placeholder="Course Number (e.g., 514)"></div>
+            <div class="mb-2"><input class="form-control" id="gradeSectionId" placeholder="Section ID"></div>
+            <div class="mb-2"><input class="form-control" id="gradeSemester" placeholder="Semester (e.g., Fall)"></div>
+            <div class="mb-2"><input class="form-control" id="gradeYear" placeholder="Year (e.g., 2025)"></div>
+            <div class="mb-2"><input class="form-control" id="studentGrade" placeholder="Grade (e.g., A, B+)"></div>
+            <button class="btn btn-warning">Assign Grade</button>
+        </form>
+    </fieldset>
+    
+
+    <!-- Transcript -->
+    <fieldset class="border p-4 mb-4">
+        <legend class="w-auto px-2">Generate Transcript</legend>
+        <form onsubmit="event.preventDefault(); getTranscript();">
+            <div class="mb-2"><input class="form-control" id="transcriptStudentId" placeholder="Student ID"></div>
+            <button class="btn btn-dark text-white">View Transcript</button>
+        </form>
+    </fieldset>
+    <div id="transcriptResult" class="mb-5"></div>
 
 </body>
 </html>
